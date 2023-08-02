@@ -22,7 +22,7 @@ The project utilizes OpenSSL 1.1.x (shared for Android and static for desktop) a
 ```c++
     QUrl Callback_URL = QString("<your Callback URL>");
 ```
-and into `Tcp_server.cpp` number 8080 (it's port by default) on your castom port from Callback_URL
+and into `Tcp_server.cpp` number 8080 (it's port by default) on your castom port from Callback_URL.
 
 ```c++
     void Tcp_server::run_Tcp_server()
