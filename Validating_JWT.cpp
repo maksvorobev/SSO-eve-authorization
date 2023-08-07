@@ -9,6 +9,10 @@ Validating_JWT::Validating_JWT(QNetworkAccessManager *manager, QString access_to
 
 bool Validating_JWT::veri_jwt_token(QString strToken, QString rsa_pub_key)
 {
+    /*
+     * rs 256 jwt token validation
+     *
+    */
     std::string token = strToken.toStdString();
 
 
@@ -16,7 +20,6 @@ bool Validating_JWT::veri_jwt_token(QString strToken, QString rsa_pub_key)
 
     auto decoded = jwt::decode(token);
     verify.verify(decoded); // there Validate the JWT tocken (signature, issuer, date, audience), if all will valid nothing will happen, else will thow exapthion
-
 
     qDebug() << "below decoding of your JWT token";
     for (auto& e : decoded.get_header_json())
@@ -61,7 +64,6 @@ QString Validating_JWT::ConvertJwkToPem_V2(const QString& nn, const QString& ee)
 
     BIO_free(mem);
     RSA_free(rr);
-
 
     return QString::fromStdString(pemData);
 

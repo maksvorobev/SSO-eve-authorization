@@ -7,7 +7,6 @@
 #include <QSslSocket>
 int main(int argc, char *argv[])
 {
-
     QGuiApplication app(argc, argv);
 
     std::string Client_ID = "";

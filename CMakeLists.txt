@@ -5,7 +5,7 @@ project(SSO-eve-authorization VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(OPENSLL_FOR_ANDROID_PATH ${CMAKE_CURRENT_SOURCE_DIR}/android_openssl/ssl_1.1)
+set(OPENSLL_FOR_ANDROID_PATH ${CMAKE_CURRENT_SOURCE_DIR}/third-party-lib/android_openssl/ssl_1.1)
 find_package(Qt6 6.2 REQUIRED COMPONENTS Quick Network NetworkAuth)
 
 qt_add_executable(appSSO-eve-authorization
@@ -42,21 +42,37 @@ if (ANDROID)
             ${OPENSLL_FOR_ANDROID_PATH}/x86/libcrypto_1_1.so
             ${OPENSLL_FOR_ANDROID_PATH}/x86/libssl_1_1.so
         )
+        set_property(TARGET appSSO-eve-authorization PROPERTY QT_ANDROID_EXTRA_LIBS
+            ${OPENSLL_FOR_ANDROID_PATH}/x86/libssl_1_1.so
+            ${OPENSLL_FOR_ANDROID_PATH}/x86/libcrypto_1_1.so
+        )
     elseif(CMAKE_ANDROID_ARCH_ABI STREQUAL "x86_64")
         target_link_libraries(appSSO-eve-authorization PRIVATE
             ${OPENSLL_FOR_ANDROID_PATH}/x86_64/libcrypto_1_1.so
             ${OPENSLL_FOR_ANDROID_PATH}/x86_64/libssl_1_1.so
         )
+        set_property(TARGET appSSO-eve-authorization PROPERTY QT_ANDROID_EXTRA_LIBS
+            ${OPENSLL_FOR_ANDROID_PATH}/x86_64/libcrypto_1_1.so
+            ${OPENSLL_FOR_ANDROID_PATH}/x86_64/libssl_1_1.so
+        )
     elseif(CMAKE_ANDROID_ARCH_ABI STREQUAL "armeabi-v7a")
         target_link_libraries(appSSO-eve-authorization PRIVATE
-        ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libcrypto_1_1.so
-        ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libssl_1_1.so
-    )
+            ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libcrypto_1_1.so
+            ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libssl_1_1.so
+        )
+        set_property(TARGET appSSO-eve-authorization PROPERTY QT_ANDROID_EXTRA_LIBS
+            ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libcrypto_1_1.so
+            ${OPENSLL_FOR_ANDROID_PATH}/armeabi-v7a/libssl_1_1.so
+        )
     elseif(CMAKE_ANDROID_ARCH_ABI STREQUAL "arm64-v8a")
         target_link_libraries(appSSO-eve-authorization PRIVATE
         ${OPENSLL_FOR_ANDROID_PATH}/arm64-v8a/libcrypto_1_1.so
         ${OPENSLL_FOR_ANDROID_PATH}/arm64-v8a/libssl_1_1.so
-    )
+        )
+        set_property(TARGET appSSO-eve-authorization PROPERTY QT_ANDROID_EXTRA_LIBS
+            ${OPENSLL_FOR_ANDROID_PATH}/arm64-v8a/libcrypto_1_1.so
+            ${OPENSLL_FOR_ANDROID_PATH}/arm64-v8a/libssl_1_1.so
+        )
     else()
         message(FATAL_ERROR "Unsupported architecture: ${CMAKE_SYSTEM_PROCESSOR}")
     endif()
@@ -70,7 +86,7 @@ endif()
 
 
 target_include_directories(appSSO-eve-authorization
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/android_openssl/ssl_1.1/include
+    PRIVATE ${OPENSLL_FOR_ANDROID_PATH}/include
 )
 
 
