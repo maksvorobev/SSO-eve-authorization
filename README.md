@@ -14,7 +14,7 @@ The project utilizes OpenSSL 1.1.x (shared for Android and static for desktop) a
 1. Create your app at https://developers.eveonline.com with a Callback URL of http://localhost:8080/oauth-callback.
 2. After that, you will need to change two lines in `main.cpp` (enter your Client ID and Scopes). By default, they are empty. 
 
-    ![main](https://downloader.disk.yandex.ru/preview/662b5c086c8ef81402ba6b49c3ea77dec44b662e21841ff0783a40ad2f45c600/64c41060/PGk-ayvGbeGgWy0Rx4FfqhI7M6nJeswM2Kd0cCgAUihWrbVEkmEoPJ27WRkNzruDPZFpjl_AkKGVp7xocXV62g%3D%3D?uid=0&filename=Screenshot%20from%202023-07-28%2017-58-10.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
+    ![main](./data/github/Screenshot%20from%202023-07-28%2017-58-10.png)
 
 3. Run the project via Qt Creator or the console. You will see a window with a button in the center (if it is the desktop platform) or an application (if it is Android). Click on it, and you will be redirected to the browser to log in. If this step is successful, the console will display the information received during the authorization process.
 
