@@ -1,9 +1,9 @@
 # Example of Authorization in SSO Eve Online Using Qt and C++
 
 ## General Description
-This is a sample project demonstrating how to perform SSO authorization for Eve Online using Qt and C++. The project follows the guidelines provided in the Eve Online ESI documentation (https://docs.esi.evetech.net). It can be compiled for Android (x86, x86-64, arm64-v8a, armeabi-v7a) and desktop (64-bit) platforms. The application authenticates via SSO and displays information such as access_token, refresh_token and etc., for further use Eve Online API.
+This is a sample project demonstrating how to perform SSO authorization for Eve Online using Qt and C++. The project follows the guidelines provided in the Eve Online [ESI documentation](https://docs.esi.evetech.net). It can be compiled for Android (x86, x86-64, arm64-v8a, armeabi-v7a) and desktop (64-bit) platforms. The application authenticates via SSO and displays information such as access_token, refresh_token and etc., for further use Eve Online API.
 
-The project utilizes OpenSSL 1.1.x (shared for Android and static for desktop) and includes the header-only jwt-cpp library (https://github.com/Thalhammer/jwt-cpp). You don't need to install anything from these dependencies as they are built into this project.
+The project utilizes OpenSSL 1.1.x (shared for Android and static for desktop) and includes the header-only [jwt-cpp library](https://github.com/Thalhammer/jwt-cpp). You don't need to install anything from these dependencies as they are built into this project.
 
 ### Requirements
 - Qt 6.2 with Android support
